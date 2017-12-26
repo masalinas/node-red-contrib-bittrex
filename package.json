@@ -1,0 +1,21 @@
+{
+  "name": "node-red-contrib-bittrex",
+  "version": "0.0.1",
+  "description": "node-red bittrex",
+  "keywords": [
+    "bittrex",
+    "node-red",
+    "cryptocurrency"
+  ],
+  "author": "Miguel Salinas Gancedo",
+  "license": "Apache License, Version 2.0",
+  "dependencies": {
+    "node-bittrex-api": "^0.8.1"
+  },
+  "node-red": {
+    "nodes": {
+      "bittrex-websocket": "bittrex/bittrex-websocket.js",
+      "bittrex-api": "bittrex/bittrex-api.js"
+    }
+  }
+}
