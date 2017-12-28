@@ -21,22 +21,28 @@ module.exports = function(RED) {
             websockets: {
                 onConnect: function() {
                     node.status({fill: "green", shape: "ring", text: "Connected"});
-                    console.info("Websocket connected at " + new Date());
+                    node.info("Websocket connectFailed");
 
                     // configure bittrex service handlers
                     websocketClient.serviceHandlers.connectFailed = function(error) {
                         node.status({fill: "red", shape: "ring", text: "Connect failed"});
                         node.error("Websocket connectFailed", error);
+
+                        return;
                     };
 
                     websocketClient.serviceHandlers.onerror = function(error) {
                         node.status({fill: "red", shape: "ring", text: "Error"});
                         node.error("Websocket error", error);
+
+                        return;
                     };
 
                     websocketClient.serviceHandlers.connectionLost = function(error) {
                         node.status({fill:"red", shape: "ring", text: "Connection lost"});
                         node.error("Connection Lost", error);
+
+                        return;
                     };
 
                     // subscribe to bittrex websocket
@@ -45,11 +51,9 @@ module.exports = function(RED) {
 
                         if (data.M === 'updateSummaryState') {
                             data.A.forEach(function(data_for) {
-                                data.A.forEach(function(data_for) {
-                                    msg.payload = data_for.Deltas;
+                                msg.payload = data_for.Deltas;
 
-                                    node.send(msg);
-                                });
+                                node.send(msg);
                             });
                         }
                     });

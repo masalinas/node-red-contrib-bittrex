@@ -24,14 +24,12 @@ module.exports = function(RED) {
                 bittrex.getticker( msg.payload.options, function( data, err ) {
                     if (err) {
                         node.status({fill:"red", shape: "ring", text: "Get ticker error"});
-                        node.error("Get ticker error", error);
+                        node.error("Get ticker error", err);
 
-                        msg.error = err;
-                        node.send(msg);
+                        return;
                     }
 
                     msg.payload = data;
-
                     node.send(msg);
                 });
             }
@@ -39,14 +37,12 @@ module.exports = function(RED) {
                 bittrex.getbalances( function( data, err ) {
                     if (err) {
                         node.status({fill:"red", shape: "ring", text: "Get balances"});
-                        node.error("Get balances", error);
+                        node.error("Get balances", err);
 
-                        msg.error = err;
-                        node.send(msg);
+                        return;
                     }
 
                     msg.payload = data;
-
                     node.send(msg);
                 });
             }
@@ -54,14 +50,12 @@ module.exports = function(RED) {
                 bittrex.getmarkethistory( msg.payload.options, function( data, err ) {
                     if (err) {
                         node.status({fill:"red", shape: "ring", text: "Get market history error"});
-                        node.error("Get market history error", error);
+                        node.error("Get market history error", err);
 
-                        msg.error = err;
-                        node.send(msg);
+                        return;
                     }
 
                     msg.payload = data;
-
                     node.send(msg);
                 });
             }
@@ -69,14 +63,12 @@ module.exports = function(RED) {
                 bittrex.getmarketsummaries( function( data, err ) {
                     if (err) {
                         node.status({fill:"red", shape: "ring", text: "Get market summaries error"});
-                        node.error("Get market summaries error", error);
+                        node.error("Get market summaries error", err);
 
-                        msg.error = err;
-                        node.send(msg);
+                        return;
                     }
 
                     msg.payload = data;
-
                     node.send(msg);
                 });
             }
@@ -84,14 +76,12 @@ module.exports = function(RED) {
                 bittrex.getmarketsummary( msg.payload.options, function( data, err ) {
                     if (err) {
                         node.status({fill:"red", shape: "ring", text: "Get market summary error"});
-                        node.error("Get market summary error", error);
+                        node.error("Get market summary error", err);
 
-                        msg.error = err;
-                        node.send(msg);
+                        return;
                     }
 
                     msg.payload = data;
-
                     node.send(msg);
                 });
             }
@@ -99,14 +89,12 @@ module.exports = function(RED) {
                 bittrex.getorderbook( msg.payload.options, function( data, err ) {
                     if (err) {
                         node.status({fill:"red", shape: "ring", text: "Get orderbook error"});
-                        node.error("Get orderbook error", error);
+                        node.error("Get orderbook error", err);
 
-                        msg.error = err;
-                        node.send(msg);
+                        return;
                     }
 
                     msg.payload = data;
-
                     node.send(msg);
                 });
             }
@@ -114,14 +102,12 @@ module.exports = function(RED) {
                 bittrex.getwithdrawalhistory( msg.payload.options, function( data, err ) {
                     if (err) {
                         node.status({fill:"red", shape: "ring", text: "Get withdrawal history error"});
-                        node.error("Get withdrawal history error", error);
+                        node.error("Get withdrawal history error", err);
 
-                        msg.error = err;
-                        node.send(msg);
+                        return;
                     }
 
                     msg.payload = data;
-
                     node.send(msg);
                 });
             }
@@ -129,14 +115,12 @@ module.exports = function(RED) {
                 bittrex.getdepositaddress( msg.payload.options, function( data, err ) {
                     if (err) {
                         node.status({fill:"red", shape: "ring", text: "Get deposit address error"});
-                        node.error("Get deposit address error", error);
+                        node.error("Get deposit address error", err);
 
-                        msg.error = err;
-                        node.send(msg);
+                        return;
                     }
 
                     msg.payload = data;
-
                     node.send(msg);
                 });
             }
@@ -144,14 +128,12 @@ module.exports = function(RED) {
                 bittrex.getdeposithistory( msg.payload.options, function( data, err ) {
                     if (err) {
                         node.status({fill:"red", shape: "ring", text: "Get deposit history error"});
-                        node.error("Get deposit history error", error);
+                        node.error("Get deposit history error", err);
 
-                        msg.error = err;
-                        node.send(msg);
+                        return;
                     }
 
                     msg.payload = data;
-
                     node.send(msg);
                 });
             }
@@ -159,14 +141,12 @@ module.exports = function(RED) {
                 bittrex.getbalance( msg.payload.options, function( data, err ) {
                     if (err) {
                         node.status({fill:"red", shape: "ring", text: "Get balance error"});
-                        node.error("Get balance error", error);
+                        node.error("Get balance error", err);
 
-                        msg.error = err;
-                        node.send(msg);
+                        return;
                     }
 
                     msg.payload = data;
-
                     node.send(msg);
                 });
             }
@@ -174,23 +154,18 @@ module.exports = function(RED) {
                 bittrex.withdraw( msg.payload.options, function( data, err ) {
                     if (err) {
                         node.status({fill:"red", shape: "ring", text: "Withdraw error"});
-                        node.error("Withdraw error", error);
+                        node.error("Withdraw error", err);
 
-                        msg.error = err;
-                        node.send(msg);
+                        return;
                     }
 
                     msg.payload = data;
-
                     node.send(msg);
                 });
             }
             else {
-                node.status({fill:"red", shape: "ring", text: "Bittrex API not exist"});
-                node.error("Bittrex API not exist");
-
-                msg.error = "Bittrex API not exist";
-                node.send(msg);
+                node.status({fill:"yellow", shape: "ring", text: "Bittrex API not exist"});
+                node.warning("Bittrex API not exist");
             }
         });
     }
