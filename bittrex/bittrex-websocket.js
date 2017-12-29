@@ -16,12 +16,10 @@ module.exports = function(RED) {
 
         // configure bittrex connection
         bittrex.options({
-            apikey: config.apikey,
-            apisecret: config.apisecret,
             websockets: {
                 onConnect: function() {
                     node.status({fill: "green", shape: "ring", text: "Connected"});
-                    node.info("Websocket connectFailed");
+                    node.log("Websocket Connected");
 
                     // configure bittrex service handlers
                     websocketClient.serviceHandlers.connectFailed = function(error) {

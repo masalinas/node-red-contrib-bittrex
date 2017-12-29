@@ -4,14 +4,6 @@
     <label for="node-input-name"><i class="fa"></i>Name</label>
     <input type="text" id="node-input-name">
   </div>
-  <div class="form-row">
-    <label for="node-input-apikey"><i class="fa"></i>Api Key</label>
-    <input type="text" id="node-input-apikey" placeholder="Bittrex ApiKey">
-  </div>
-  <div class="form-row">
-    <label for="node-input-apisecret"><i class="fa"></i>Secret Api Key</label>
-    <input type="text" id="node-input-apisecret" placeholder="Bittrex Secret ApiKey">
-  </div>
 </script>
 
 <script type="text/x-red" data-help-name="bittrex-websocket">
@@ -46,9 +38,7 @@
     RED.nodes.registerType("bittrex-websocket",{
         category: 'Traiding',
         defaults: {
-            name: {value: ''},
-            apikey: {value: ''},
-            apisecret: {value: ''}
+            name: {value: ''}
         },
         outputs: 1,
         label: function() {
