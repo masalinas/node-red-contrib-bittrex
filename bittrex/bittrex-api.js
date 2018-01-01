@@ -42,6 +42,8 @@ module.exports = function(RED) {
                         return;
                     }
 
+                    node.status({fill: "green", shape: "ring", text: "API executed"});
+
                     msg.payload = data;
                     node.send(msg);
                 });
@@ -54,6 +56,8 @@ module.exports = function(RED) {
 
                         return;
                     }
+
+                    node.status({fill: "green", shape: "ring", text: "API executed"});
 
                     msg.payload = data;
                     node.send(msg);
@@ -68,6 +72,8 @@ module.exports = function(RED) {
                         return;
                     }
 
+                    node.status({fill: "green", shape: "ring", text: "API executed"});
+
                     msg.payload = data;
                     node.send(msg);
                 });
@@ -80,6 +86,8 @@ module.exports = function(RED) {
 
                         return;
                     }
+
+                    node.status({fill: "green", shape: "ring", text: "API executed"});
 
                     msg.payload = data;
                     node.send(msg);
@@ -94,6 +102,8 @@ module.exports = function(RED) {
                         return;
                     }
 
+                    node.status({fill: "green", shape: "ring", text: "API executed"});
+
                     msg.payload = data;
                     node.send(msg);
                 });
@@ -106,6 +116,8 @@ module.exports = function(RED) {
 
                         return;
                     }
+
+                    node.status({fill: "green", shape: "ring", text: "API executed"});
 
                     msg.payload = data;
                     node.send(msg);
@@ -120,6 +132,8 @@ module.exports = function(RED) {
                         return;
                     }
 
+                    node.status({fill: "green", shape: "ring", text: "API executed"});
+
                     msg.payload = data;
                     node.send(msg);
                 });
@@ -132,6 +146,8 @@ module.exports = function(RED) {
 
                         return;
                     }
+
+                    node.status({fill: "green", shape: "ring", text: "API executed"});
 
                     msg.payload = data;
                     node.send(msg);
@@ -146,6 +162,8 @@ module.exports = function(RED) {
                         return;
                     }
 
+                    node.status({fill: "green", shape: "ring", text: "API executed"});
+
                     msg.payload = data;
                     node.send(msg);
                 });
@@ -158,6 +176,8 @@ module.exports = function(RED) {
 
                         return;
                     }
+
+                    node.status({fill: "green", shape: "ring", text: "API executed"});
 
                     msg.payload = data;
                     node.send(msg);
